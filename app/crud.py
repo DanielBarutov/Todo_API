@@ -1,6 +1,9 @@
-from sqlalchemy.orm import Session
-from . import models, schemas
 from typing import List, Optional
+
+from sqlalchemy.orm import Session
+
+from . import models, schemas
+
 
 class TaskCRUD:
     @staticmethod
@@ -20,7 +23,9 @@ class TaskCRUD:
         return db.query(models.Task).filter(models.Task.id == task_id).first()
 
     @staticmethod
-    def update_task(db: Session, task_id: int, task_update: schemas.TaskUpdate) -> Optional[models.Task]:
+    def update_task(
+        db: Session, task_id: int, task_update: schemas.TaskUpdate
+    ) -> Optional[models.Task]:
         db_task = TaskCRUD.get_task(db, task_id)
         if db_task:
             update_data = task_update.model_dump(exclude_unset=True)
@@ -37,7 +42,9 @@ class TaskCRUD:
             db.delete(db_task)
             db.commit()
             return True
-        return False 
+        return False
+
+
 class UserCRUD:
     @staticmethod
     def create_user(db: Session, user: schemas.UserCreate) -> models.User:
@@ -46,11 +53,7 @@ class UserCRUD:
         db.commit()
         db.refresh(db_user)
         return db_user
-    
+
     @staticmethod
     def get_users(db: Session, skip: int = 0, limit: int = 100) -> List[models.User]:
         return db.query(models.User).offset(skip).limit(limit).all()
-    
-    
-    
-    

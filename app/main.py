@@ -34,12 +34,9 @@ app.include_router(routerUsers)
 app.mount("/public", StaticFiles(directory="app/public"), name="public")
 @app.get("/")
 def create_page():
-    return templates.TemplateResponse("create.html", {"request": {}})
+    return {"message": "ToDo API, version 1.0.0"}
 
-@app.get("/tasks")
-def tasks_page():
-    tasks = get_tasks_from_db()
-    return templates.TemplateResponse("tasks.html", {"request": {}, "tasks": tasks})
+
 
 @app.get("/health")
 def health_check():

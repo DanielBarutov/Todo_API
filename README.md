@@ -22,8 +22,8 @@ I am passionate about backend development and continuously learning to improve m
 ## Contact Information
 
 **Name**: Danil Barutov  
-**Email**: barutovdg@gmail.com
-**Telegram**: @daniel_papo
+**Email**: barutovdg@gmail.com  
+**Telegram**: @daniel_papo  
 **GitHub**: [github.com/danilbarutov](https://github.com/DanielBarutov)
 
 

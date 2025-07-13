@@ -1,230 +1,198 @@
-# ToDo API
+### I am Danil Barutov, an aspiring Python backend developer.  
+I self-studied a modern Python web development stack (FastAPI, SQLAlchemy, Alembic, Pydantic, Pytest, and GitHub Actions) in an intensive seven-day period and built a ToDo REST API project to demonstrate my skills.  
+Despite having no formal industry experience, I have completed this case project and undertaken freelance development work.  
+I am passionate about backend development and continuously learning to improve my skills.  
 
-Полнофункциональное REST API для управления задачами, построенное на FastAPI с использованием современных практик разработки.
+## Case Project: ToDo REST API
 
-## 🚀 Возможности
+**Project Title**: ToDo REST API  
 
-- ✅ CRUD операции для задач
-- 🗄️ SQLAlchemy ORM с поддержкой миграций
-- 📚 Автоматическая документация API (Swagger/ReDoc)
-- 🗄️ SQLAlchemy ORM с поддержкой миграций
+**Objective**: Develop a complete RESTful API for managing a to-do list, demonstrating proficiency in backend development and best practices.  
 
-## 🛠️ Технологический стек
+**Architecture**: The project uses a modular architecture with separate modules for database models, API routes, and data schemas. It includes SQLAlchemy models for database interactions, Pydantic schemas for input/output validation, and Alembic for database migrations.  
 
-- **FastAPI** - современный веб-фреймворк для Python
-- **SQLAlchemy** - ORM для работы с базой данных
-- **Alembic** - система миграций
-- **Pydantic** - валидация данных
-- **Pytest** - тестирование
-- **SQLite** - база данных (можно заменить на PostgreSQL)
+**Tech Stack**: FastAPI (web framework), SQLAlchemy (ORM), Alembic (database migrations), Pydantic (data validation), Pytest (testing), Git & GitHub Actions (version control and CI/CD).  
 
-## 🛠️ Технологический стек
+**Key Components**: CRUD API endpoints for task management, proper data validation and error handling, database migrations, and automated tests.   
 
-### Предварительные требования
+
+### GitHub: [Todo_API](https://github.com/DanielBarutov/Todo_API)
+
+## Contact Information
+
+**Name**: Danil Barutov  
+**Email**: barutovdg@gmail.com
+**Telegram**: @daniel_papo
+**GitHub**: [github.com/danilbarutov](https://github.com/DanielBarutov)
+
+
+## 🚀 Features
+
+- ✅ CRUD operations for tasks
+- 🗄️ SQLAlchemy ORM with migration support
+- 📚 Automatic API documentation (Swagger/ReDoc)
+- 🗄️ SQLAlchemy ORM with migration support
+
+## 🛠️ Technology stack
+
+- **FastAPI** - a modern web framework for Python
+- **SQLAlchemy** - ORM for working with the database
+- **Alembic** - migration system
+- **Pydantic** - data validation
+- **Pytest** - testing
+- **SQLite** - database (can be replaced with PostgreSQL)
+
+## 🛠️ Technology stack
+
+### Preliminary requirements
 
 - Python 3.9+
 - pip
 
-### Локальная установка
+### Local installation
 
-1. **Клонируйте репозиторий:**
+1. **Clone the repository:**
 ```bash
 git clone <repository-url>
 cd todo-api
 ```
 
-2. **Создайте виртуальное окружение:**
-```bash
+2. **Create a virtual environment:**
+``bash
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# или
+source venv/bin/activate # Linux/Mac
+# or
 venv\Scripts\activate  # Windows
 ```
 
-3. **Установите зависимости:**
+3. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Настройте переменные окружения:**
+4. **Configure the environment variables:**
 ```bash
 cp .env.example .env
-# Отредактируйте .env файл при необходимости
-```
+# Edit it .env file if necessary
+``
 
-5. **Запустите миграции:**
+5. **Start migrations:**
 ```bash
 alembic upgrade head
 ```
 
-6. **Запустите сервер:**
+6. **Start the server:**
 ```bash
 uvicorn app.main:app --reload
 ```
 
-API будет доступно по адресу: http://localhost:8000
+The API will be available at: http://localhost:8000
 
-## 📚 Автоматическая документация API (Swagger/ReDoc)
+# 📚 Automatic API Documentation (Swagger/ReDoc)
 
-После запуска сервера документация доступна по следующим адресам:
+After starting the server, the documentation is available at the following addresses:
 
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
-## 🧪 Тестирование
+## 🧪 Testing
 
-### Запуск тестов
+### Running tests
 ```bash
 pytest tests/ -v
 ```
 
-### Запуск тестов с покрытием
+### Running tests with coverage
 ```bash
 pytest tests/ -v --cov=app --cov-report=html
 ```
 
-## 📋 Примеры использования
+## 📋 Usage examples
 
-### Создание задачи
+### Creating a task
 ```bash
 curl -X POST "http://localhost:8000/tasks/" \
      -H "Content-Type: application/json" \
      -d '{
-       "title": "Изучить FastAPI",
-       "description": "Изучить документацию и создать первый проект",
+       "title": "Explore FastAPI",
+"description": "Explore documentation and create the first project",
        "is_completed": false
      }'
 ```
 
-### Получение списка задач
+### Getting the task list
 ```bash
 curl -X GET "http://localhost:8000/tasks/"
 ```
 
-### Получение конкретной задачи
+### Getting a specific task
 ```bash
 curl -X GET "http://localhost:8000/tasks/1"
 ```
 
-### Обновление задачи
+### Updating the task
 ```bash
 curl -X PUT "http://localhost:8000/tasks/1" \
      -H "Content-Type: application/json" \
      -d '{
-       "title": "Изучить FastAPI (обновлено)",
+       "title": "Explore FastAPI (updated)",
        "is_completed": true
      }'
 ```
 
-### Удаление задачи
+### Deleting an issue
 ```bash
 curl -X DELETE "http://localhost:8000/tasks/1"
 ```
 
-## 📋 Примеры использования
+## 📋 Usage examples
 
-## 📋 Примеры использования
+## 📋 Usage examples
 
 ```
 todo-api/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py          # Точка входа приложения
-│   ├── models.py        # SQLAlchemy модели
-│   ├── schemas.py       # Pydantic схемы
-│   ├── crud.py          # CRUD операции
+│   ├── main.py # Application Entry Point
+│   ├── models.py # SQLAlchemy models
+│   ├── schemas.py # Pydantic schemes
+│   ├── crud.py # CRUD operations
 │   ├── routes.py        # API endpoints
-│   └── database.py      # Конфигурация БД
-├── alembic/             # Миграции базы данных
-├── tests/               # Тесты
-│   ├── __init__.py
-│   ├── conftest.py      # Конфигурация pytest
-│   └── test_tasks.py    # Тесты для задач
-├── .github/workflows/   # CI/CD
-├── requirements.txt     # Зависимости
-├── .env.example        # Пример переменных окружения
-├── alembic.ini         # Конфигурация Alembic
-└── README.md           # Документация
+│   └── database.py # Database Configuration
+├── alembic/ # Database migrations
+├── tests/               # Tests
+,──__
+init__.py ,── conftest.py # Pytest configuration
+,── test_tasks.py # Tests for tasks
+├── .github/workflows/ # CI/CD
+├── requirements.txt # Dependencies
+├── .env.example # Example of environment variables
+,── alembic.ini # Alembic configuration
+,── README.md # Documentation
 ```
 
 ## 🔧 API Endpoints
 
-| Метод | Endpoint | Описание |
+| The | Endpoint | method Description |
 |-------|----------|----------|
-| POST | `/tasks/` | Создать новую задачу |
-| GET | `/tasks/` | Получить список задач |
-| GET | `/tasks/{id}` | Получить задачу по ID |
-| PUT | `/tasks/{id}` | Обновить задачу |
-| DELETE | `/tasks/{id}` | Удалить задачу |
-| GET | `/health` | Проверка здоровья API |
+| POST | `/tasks/` | Create a new task |
+| GET | `/tasks/` | Get a list of tasks |
+| GET | `/tasks/{id}` | Get a task by ID |
+|PUT | `/tasks/{id}` | Update the issue |
+| DELETE | `/tasks/{id}` | Delete an issue |
+| POST | `/user/` | Create a new user |
+| GET | `/users/` | Get a list of users |
+| GET | `/health` | API Health Check |
 
-## 📝 Лицензия
 
-Этот проект распространяется под лицензией MIT. См. файл `LICENSE` для получения дополнительной информации.
+## 🆘 Support
 
-## 🆘 Поддержка
-
-Если у вас есть вопросы или проблемы, создайте issue в репозитории.
+If you have any questions or concerns, create an issue in the repository.
 
 ---
 
-**Автор**: [Ваше имя]  
-**Версия**: 1.0.0  
-**Дата**: 2024
+**Author**: Danil Barutov  
+**Version**: 1.0.0  
+**Date**: 2025
 
 ```
-
-## 7. Дополнительные файлы для продакшена
-
-```python:todo-api/app/config.py
-from pydantic_settings import BaseSettings
-from typing import Optional
-
-class Settings(BaseSettings):
-    # База данных
-    database_url: str = "sqlite:///./todo.db"
-    
-    # Настройки приложения
-    debug: bool = False
-    host: str = "0.0.0.0"
-    port: int = 8000
-    
-    # CORS
-    cors_origins: list = ["*"]
-    
-    # API
-    api_v1_prefix: str = "/api/v1"
-    project_name: str = "ToDo API"
-    project_version: str = "1.0.0"
-    
-    class Config:
-        env_file = ".env"
-
-settings = Settings()
-```
-
-Теперь у вас есть полноценный ToDo API проект! Вот что мы создали:
-
-## ✅ Что готово:
-
-1. **Структура проекта** - все файлы и папки организованы по лучшим практикам
-2. **FastAPI приложение** - с роутами, моделями и схемами
-3. **SQLAlchemy + Alembic** - для работы с БД и миграций
-4. **Pydantic схемы** - для валидации данных
-5. **CRUD операции** - полный набор операций с задачами
-6. **Тесты** - покрытие всех основных функций
-7. **CI/CD** - GitHub Actions для автоматического тестирования
-8. **Документация** - подробный README с примерами
-
-## 🎯 Что можно расширить:
-
-- Аутентификация и авторизация
-- Теги и категории для задач
-- Приоритеты и дедлайны
-- Поиск и фильтрация
-- Пагинация
-- Логирование
-- Мониторинг
-- Docker контейнеризация
-
-Этот проект демонстрирует все ключевые навыки, которые ценят работодатели: архитектуру, работу с БД, тестирование, CI/CD и документацию!

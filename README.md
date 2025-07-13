@@ -145,7 +145,7 @@ curl -X PUT "http://localhost:8000/tasks/1" \
 ```bash
 curl -X DELETE "http://localhost:8000/tasks/1"
 ```
-## 📋 Usage examples
+## 📋 Structure
 
 ```
 todo-api/
